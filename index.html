@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Donate - Making a Difference</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #06C167;
+    background-image: 
+        radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 2px, transparent 2px),
+        radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 2px, transparent 2px),
+        radial-gradient(circle at 40% 20%, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+        radial-gradient(circle at 60% 90%, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(135deg, #06C167 0%, #048a4a 100%);
+    background-size: 50px 50px, 80px 80px, 30px 30px, 60px 60px, 100% 100%;
+    background-position: 0 0, 40px 40px, 20px 20px, 50px 50px, 0 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow-x: hidden;
+    animation: bgMove 20s linear infinite;
+}
+
+@keyframes bgMove {
+    0% {
+        background-position: 0 0, 40px 40px, 20px 20px, 50px 50px, 0 0;
+    }
+    100% {
+        background-position: 50px 50px, 90px 90px, 50px 50px, 100px 100px, 0 0;
+    }
+}
+
+/* Animated background elements */
+
+@keyframes float {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    50% {
+        transform: translate(50px, 50px) rotate(180deg);
+    }
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 60px 50px;
+    border-radius: 30px;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 600px;
+    width: 90%;
+    animation: slideUp 0.8s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.logo {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #2d3748;
+    animation: fadeIn 1s ease-out 0.2s both;
+}
+
+.logo .highlight {
+    color: #06C167;
+    position: relative;
+    display: inline-block;
+}
+
+.logo .highlight::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: #06C167;
+    border-radius: 2px;
+    animation: expand 0.8s ease-out 0.8s both;
+}
+
+@keyframes expand {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+.subtitle {
+    font-size: 16px;
+    color: #718096;
+    margin-bottom: 40px;
+    font-weight: 400;
+    animation: fadeIn 1s ease-out 0.4s both;
+}
+
+.para {
+    font-size: 24px;
+    color: #4a5568;
+    margin-bottom: 35px;
+    font-weight: 600;
+    animation: fadeIn 1s ease-out 0.6s both;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.login-options {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    animation: fadeIn 1s ease-out 0.8s both;
+}
+
+.login-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-size: 18px;
+    background: linear-gradient(135deg, #06C167 0%, #048a4a 100%);
+    padding: 18px 40px;
+    text-decoration: none;
+    font-weight: 600;
+    color: #fff;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 25px rgba(6, 193, 103, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.login-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: left 0.5s ease;
+}
+
+.login-btn:hover::before {
+    left: 100%;
+}
+
+.login-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(6, 193, 103, 0.4);
+}
+
+.login-btn:active {
+    transform: translateY(-1px);
+}
+
+.login-btn i {
+    font-size: 24px;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.login-btn:hover i {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1) rotate(5deg);
+}
+
+.login-btn.admin {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+}
+
+.login-btn.admin:hover {
+    box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+}
+
+.login-btn.delivery {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    box-shadow: 0 10px 25px rgba(240, 147, 251, 0.3);
+}
+
+.login-btn.delivery:hover {
+    box-shadow: 0 15px 35px rgba(240, 147, 251, 0.4);
+}
+
+.footer-text {
+    margin-top: 40px;
+    font-size: 14px;
+    color: #a0aec0;
+    animation: fadeIn 1s ease-out 1s both;
+}
+
+/* Mobile Responsiveness */
+@media only screen and (max-width: 768px) {
+    .container {
+        padding: 40px 30px;
+        width: 95%;
+    }
+    
+    .logo {
+        font-size: 36px;
+    }
+    
+    .para {
+        font-size: 20px;
+        margin-bottom: 25px;
+    }
+    
+    .login-btn {
+        font-size: 16px;
+        padding: 16px 30px;
+    }
+    
+    body::before,
+    body::after {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .logo {
+        font-size: 30px;
+    }
+    
+    .subtitle {
+        font-size: 14px;
+    }
+    
+    .para {
+        font-size: 18px;
+    }
+    
+    .login-options {
+        gap: 15px;
+    }
+}
+</style>
+<body>
+    <div class="container">
+        <h1 class="logo">Welcome to Food <span class="highlight">Donate</span></h1>
+        <p class="subtitle">Making a difference, one meal at a time</p>
+        
+        <p class="para">Login as</p>
+        
+        <div class="login-options">
+            <a href="signup.php" class="login-btn">
+                <i class="fas fa-user-circle"></i>
+                <span>User</span>
+            </a>
+            
+            <a href="admin/signup.php" class="login-btn admin">
+                <i class="fas fa-user-cog"></i>
+                <span>Admin</span>
+            </a>
+            
+            <a href="delivery/deliverysignup.php" class="login-btn delivery">
+                <i class="fas fa-shipping-fast"></i>
+                <span>Delivery</span>
+            </a>
+        </div>
+        
+        <p class="footer-text">Join us in fighting food waste and hunger</p>
+    </div>
+</body>
+</html>
