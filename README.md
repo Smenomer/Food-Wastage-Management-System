@@ -148,6 +148,42 @@ Replace `folderName` with the name of your project folder.
 
 ---
 
+## ☁️ Cloud Deployment
+
+In addition to running locally via XAMPP, this project has been deployed on AWS using an automated CI/CD pipeline.
+
+### Deployment Architecture
+
+```mermaid
+graph LR
+    A["Developer Push\nto GitHub"] -->|Webhook Trigger| B["Jenkins Server\nUbuntu"]
+    B -->|Pulls Latest Code| C["Deploy Stage"]
+    C -->|Syncs Files| D["EC2 Instance\nLinux"]
+    D -->|Serves via| E["Nginx + PHP-FPM"]
+    E -->|Reads/Writes| F[("MySQL Database")]
+    E --> G["Live Application"]
+```
+
+### Deployment Stack
+
+| Layer | Tool/Service |
+|---|---|
+| Cloud Provider | AWS (EC2) |
+| OS | Linux |
+| Web/App Server | Nginx + PHP-FPM |
+| Database | MySQL |
+| CI/CD | Jenkins + GitHub Webhooks |
+
+### How It Works
+
+1. Code pushed to GitHub triggers a webhook.
+2. Jenkins automatically pulls the latest code.
+3. Files are synced to the EC2 instance.
+4. Nginx + PHP-FPM serves the application; MySQL handles data.
+5. No manual deployment steps required — fully automated.
+
+---
+
 ## 📚 Learning Outcomes
 
 Through this project, I gained practical experience in:
