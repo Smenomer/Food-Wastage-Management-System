@@ -8,6 +8,8 @@ This project was developed as a solution to help bridge that gap by creating a p
 
 The main objective of this project is to reduce food wastage while making the donation process simple, organised, and efficient.
 
+This project after its completion in development was deployed in AWS ec2 instance set in linux, for server used Nginx, Used Jenkins to set-up a auto building and deployment pathway using CI/CD pipelines.
+
 ---
 
 ## 🎯 Objectives
@@ -205,7 +207,6 @@ Some features that can be added in future versions include:
 * Real-time donation tracking
 * Google Maps integration for pickup locations
 * SMS and email notifications
-* AI-based food demand prediction
 * Payment gateway for monetary donations
 * Mobile application for Android and iOS
 
